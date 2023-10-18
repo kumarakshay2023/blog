@@ -5,9 +5,9 @@ const postSchema = new Schema({
     heading:String,
     image:String,
     content:String,
-    userId:{
+    user:{
       type:mongoose.Schema.Types.ObjectId,
-      ref:'User'
+      ref:'users'
     
     },
     hashtag:String,

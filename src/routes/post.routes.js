@@ -6,5 +6,6 @@ const postController = require('../controllers/post.controller');
 
 router.post('/add',auth,postController.createPost);
 router.put('/edit/:id',auth,postController.editPost);
+router.get('/list',postController.getPostList);
 
 module.exports=router;

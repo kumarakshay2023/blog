@@ -10,7 +10,7 @@ exports.createPost = async (req, res) => {
         status: true,
       });
     }
-    await Post.create({ heading, content, image, hashtag, userId: userId });
+    await Post.create({ heading, content, image, hashtag, user: userId });
     return res.status(200).json({
       msg: "Post added sucessfully",
       status: true,
@@ -46,3 +46,20 @@ exports.editPost = async (req, res) => {
     });
   }
 };
+
+exports.getPostList=async(req,res)=>{
+  try {
+     const postData = await Post.find({}).populate('user', '-password');
+     return res.status(200).json({
+      msg:'Post List',
+      data:postData
+    })
+
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({
+      msg: "Something went wrong",
+      status: false,
+    });
+  }
+}
