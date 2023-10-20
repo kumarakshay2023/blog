@@ -17,7 +17,6 @@ const uploadMedia = async (filename, body) => {
         ACL: "public-read",
         Body: body,
     }).promise();
-   console.log(file,'fileeee')
     return file
 }
 
