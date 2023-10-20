@@ -4,6 +4,7 @@ const fileUpload = require('express-fileupload');
 const userRouter = require('./src/routes/user.routes');
 const postRouter = require('./src/routes/post.routes');
 const fileUploadRouter = require('./src/routes/fileUpload.routes');
+const port = process.env.PORT||3030;
 const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
@@ -21,6 +22,6 @@ app.use('/',fileUploadRouter)
 
 
 
-app.listen(3030,()=>{
+app.listen(port,()=>{
     console.log('listing to port 3030');
 })
